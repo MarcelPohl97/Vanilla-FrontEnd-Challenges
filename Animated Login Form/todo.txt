@@ -1,7 +1,0 @@
-todo:
-    -> add a little authentication system 
-    -> add squish effect when username or password is wrong
-    -> add form hides and login floats down and switches to successfully authenticated
-    -> add floating squares
-    -> add dynamic squares 
-    -> add customizable forms and colors

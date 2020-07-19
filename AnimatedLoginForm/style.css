@@ -1,0 +1,251 @@
+/* Init Reset */
+
+* {
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+
+body {
+    font-size: 62.5%;
+    line-height: 1.7;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    position: relative;
+    overflow:hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Variables */
+:root {
+    --white-color:#fff;
+}
+
+.container {
+    height: 100vh;
+    width:100%;
+    position: relative;
+    z-index: 1000;
+}
+
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+}
+
+.wrapper__header {
+    color: var(--white-color);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    transition: all 1s;
+}
+
+.wrapper__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.wrapper__username,
+.wrapper__password,
+.wrapper__btn {
+    text-align: center;
+    padding: 0.6rem 1rem;
+    font-size: 1.2rem;
+    width: 100%;
+    border-radius: 3px;
+}
+
+.wrapper__username,
+.wrapper__password {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #333;
+    transition: all .2s;
+    outline: none;
+}
+
+.wrapper__username:hover,
+.wrapper__password:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.wrapper__username::placeholder,
+.wrapper__password::placeholder {
+    color: #fff;
+}
+
+.wrapper__username:focus,
+.wrapper__password:focus {
+    width: 120%;
+    transition: all .2s;
+    background: #fff;
+    
+}
+
+.wrapper__password {
+    margin: .8rem 0;
+}
+
+.wrapper__btn {
+    width: 100%;
+    background: #fff;
+    border:none;
+    color: #333;
+    transition: all .2s;
+}
+
+.wrapper__btn:hover {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.wrapper__btn:focus {
+    outline: none;
+}
+
+.hide {
+    opacity:0;
+    transition: all .4s;
+}
+
+.float_down {
+    transition: all 1s;
+    transform: translateY(100px);
+}
+
+.float {
+    animation: float_around 15s infinite linear;
+}
+
+.squish {
+    animation: squish 1s ease-in-out;
+    border: 1px solid rgba(255, 0, 0, 1);
+}
+
+.star {
+    clip-path:polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+@keyframes float_around {
+    from {transform: translateY(1080px) rotate(360deg);}
+    to {transform: translateY(-100px) rotate(0);}
+}
+
+@keyframes squish {
+    0% {
+        transform: translateX(20);
+    }
+    20% {
+        transform: translateX(-20px);
+    }
+    40% {
+        transform: translateX(20px);
+    }
+    60% {
+        transform: translateX(-20px);
+    }
+    80% {
+        transform: translateX(20px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.gradient__container {
+    position: absolute;
+    top: 0;
+    left:0;
+    z-index: 10000;
+    height: 100%;
+    background: #2c3e50;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all .25s ease-in-out;
+    overflow-y: scroll;
+}
+
+.hide_gradient {
+    height: 0 !important;
+    transition: all .25s ease-in-out;
+}
+
+.gradient__header {
+    padding: .6rem;
+    background: #fff;
+    width: 100%;
+    text-align: right;
+    position: sticky;
+}
+
+.gradient__btn {
+    font-size: 1rem;
+    cursor:pointer;
+    position: sticky;
+}
+
+.gradient__btnOpen {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #fff;
+}
+
+.gradient__btn:hover {
+    border-bottom: 1px solid #333;
+}
+
+.gradient__btnOpen:hover {
+    border-bottom: 1px solid #fff;
+}
+
+.gradient__row {
+    padding: .5rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+    width: 100%;
+    justify-items: center;
+    overflow-y: scroll;
+}
+
+.gradient__color {
+    border-radius: 3px;
+    height: 150px;
+    width: 100%;
+    position: relative;
+    transition: all .1s;
+}
+
+.gradient__color:hover {
+    transform: scale(1.01);
+    outline: #222222 solid 10px;
+}
+
+.gradient__color:hover .gradient__name {
+    border-bottom: 1px solid lightgrey;
+}
+
+.gradient__name {
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.25rem;
+}
