@@ -4,11 +4,13 @@ const login_btn = document.getElementsByClassName("wrapper__btn")[0];
 const user_input = document.getElementsByClassName("wrapper__username")[0];
 const password_input = document.getElementsByClassName("wrapper__password")[0];
 const shape_container = document.getElementsByClassName("shapes")[0];
-const gradient_container = document.getElementsByClassName("gradient__container")[0];
-const gradient_close_btn = document.getElementsByClassName("gradient__btnClose")[0];
-const gradient_open_btn = document.getElementsByClassName("gradient__btnOpen")[0];
-const gradient_row = document.getElementsByClassName("gradient__row")[0];
+const option_container = document.getElementsByClassName("option__container")[0];
+const option_close_btn = document.getElementsByClassName("option__btnClose")[0];
+const option_open_btn = document.getElementsByClassName("option__btnOpen")[0];
+const option_row = document.getElementsByClassName("option__row")[0];
 const container = document.getElementsByClassName("container")[0];
+
+
 
 const user_data = {
     username: 'Tester',
@@ -77,29 +79,29 @@ fetch('https://raw.githubusercontent.com/ghosh/uiGradients/master/gradients.json
     }
   })
   
-  gradient_close_btn.addEventListener("click", () => {
-    gradient_container.classList.add("hide_gradient");
+  option_close_btn.addEventListener("click", () => {
+    option_container.classList.add("hide_option");
   });
 
-  gradient_open_btn.addEventListener("click", () => {
-    gradient_container.classList.remove("hide_gradient");
+  option_open_btn.addEventListener("click", () => {
+    option_container.classList.remove("hide_option");
   });
 
   const create_gradient = (data) => {
       const gradient_color = document.createElement("div")
       const check_gradient_length = (data.colors.length === 2) ? gradient_color.style.background = "linear-gradient("+ data.colors[0] +" , "+ data.colors[1] +")" : 
                                                                  gradient_color.style.background = "linear-gradient("+ data.colors[0] + " , " + data.colors[1] + " , " + data.colors[2] + ")"
-      gradient_color.classList.add("gradient__color");
+      gradient_color.classList.add("option__color");
       const gradient_name = document.createElement("p")
       gradient_name.textContent = `${data.name}`
-      gradient_name.classList.add("gradient__name")
+      gradient_name.classList.add("option__name")
       gradient_color.appendChild(gradient_name);
-      gradient_row.appendChild(gradient_color);
+      option_row.appendChild(gradient_color);
   }
 
-  gradient_row.addEventListener("click", (event) => {
-      if (event.target.classList.contains("gradient__color")){
+  option_row.addEventListener("click", (event) => {
+      if (event.target.classList.contains("option__color")){
           container.style.background = event.target.style.background;
-          gradient_container.classList.add("hide_gradient");
+          option_container.classList.add("hide_option");
       }
   })
